@@ -9,7 +9,7 @@ class TestOne(BaseCase):
     def test_negative_login_invalid_email(self):
         self.login_page = LoginPage(self.driver)
         self.login_page.login_invalid_email()
-        assert "Введите email или телефон" in self.driver.page_source
+        assert "ведите email или телефон" in self.driver.page_source
 
     @pytest.mark.UI
     def test_negative_login_invalid_password(self):

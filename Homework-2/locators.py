@@ -29,7 +29,7 @@ class CampaignPageLocators(LoginLocators):
     CAMPAIGN_INTEREST_LOCATOR_2 = (By.XPATH, "//label[contains(@title, 'Родители детей')]")
     CAMPAIGN_BANNER_FORMAT_LOCATOR = (By.ID, "patterns_4")
     CAMPAIGN_IMAGE_UPLOAD_BUTTON_LOCATOR = (
-    By.XPATH, "//div[@class='upload-module-wrapper-Aj2EE_']/input[@type='file']")
+    By.XPATH, "//div[contains(@class, 'upload-module-wrapper')]/input[@type='file']")
     CAMPAIGN_IMAGE_CROPPER_BUTTON_LOCATOR = (By.CLASS_NAME, 'image-cropper__save.js-save')
     CAMPAIGN_BANNER_SUBMIT_BUTTON_LOCATOR = (By.XPATH, "//div[@data-test='submit_banner_button']")
     CAMPAIGN_SUBMIT_BUTTON_LOCATOR = (By.CLASS_NAME, 'footer__button.js-save-button-wrap')

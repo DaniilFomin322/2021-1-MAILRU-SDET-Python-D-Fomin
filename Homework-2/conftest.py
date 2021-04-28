@@ -1,6 +1,6 @@
 from fixtures import *
-import pytest
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 def pytest_addoption(parser):
@@ -22,23 +22,10 @@ def driver(config):
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--ignore-ssl-errors')
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
-    browser = webdriver.Chrome(
-        executable_path=r'C:\Users\Ekaterina\PycharmProjects\2021-1-MAILRU-SDET-Python-D-Fomin\chromedriver.exe',
-        options=options)
+    browser = webdriver.Chrome(ChromeDriverManager().install())
     browser.get(config['url'])
     browser.set_window_size(1600, 1200)
     browser.implicitly_wait(10)
-    yield browser
-    print("\nquit browser..")
-    browser.quit()
-    parser.addoption('--browser_name', action='store', default="chrome",
-                     help="Choose browser: chrome or firefox")
-
-
-@pytest.fixture(scope="function")
-def browser():
-    print("\nstart chrome browser for test..")
-    browser = webdriver.Chrome(r'C:\Users\Ekaterina\PycharmProjects\pythonProject\lection\chromedriver.exe')
     yield browser
     print("\nquit browser..")
     browser.quit()

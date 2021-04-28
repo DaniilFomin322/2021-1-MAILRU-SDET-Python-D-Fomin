@@ -1,4 +1,5 @@
 from fixtures import *
+import pytest
 from selenium import webdriver
 
 
@@ -27,6 +28,17 @@ def driver(config):
     browser.get(config['url'])
     browser.set_window_size(1600, 1200)
     browser.implicitly_wait(10)
+    yield browser
+    print("\nquit browser..")
+    browser.quit()
+    parser.addoption('--browser_name', action='store', default="chrome",
+                     help="Choose browser: chrome or firefox")
+
+
+@pytest.fixture(scope="function")
+def browser():
+    print("\nstart chrome browser for test..")
+    browser = webdriver.Chrome(r'C:\Users\Ekaterina\PycharmProjects\pythonProject\lection\chromedriver.exe')
     yield browser
     print("\nquit browser..")
     browser.quit()

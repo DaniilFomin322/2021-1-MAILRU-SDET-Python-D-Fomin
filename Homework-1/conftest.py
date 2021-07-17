@@ -33,7 +33,7 @@ def login(browser):
     time.sleep(2)
     email= browser.find_element_by_name('email')
     email.clear()
-    email.send_keys('tommy58rus@gmail.com')
+    email.send_keys('login')
     time.sleep(2)
     password = browser.find_element_by_name('password')
     password.clear()

@@ -10,7 +10,7 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="function")
 def browser():
     print("\nstart chrome browser for test..")
-    browser = webdriver.Chrome(r'C:\Users\Ekaterina\PycharmProjects\pythonProject\lection\chromedriver.exe')
+    browser = webdriver.Chrome(r'path')
     yield browser
     print("\nquit browser..")
     browser.quit()
